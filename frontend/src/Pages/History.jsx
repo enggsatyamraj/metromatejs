@@ -47,7 +47,7 @@ const History = () => {
   const handleDeleteHistory = async () => {
     try {
       const response = await fetch(
-        "https://metromate-ixmd.onrender.com//api/v1/deletehistory",
+        "https://metromate-ixmd.onrender.com/api/v1/deletehistory",
         {
           method: "DELETE",
           headers: {
