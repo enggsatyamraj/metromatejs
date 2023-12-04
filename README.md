@@ -2,7 +2,7 @@
 
 ## Overview
 
-Welcome to MetroMate—a revolutionary platform that redefines your commuting experience. This repository contains the codebase for both the frontend and backend of MetroMate. The backend is deployed on Render at [https://metromate-ixmd.onrender.com](https://metromate-ixmd.onrender.com).
+Welcome to MetroMate—a revolutionary platform that redefines your commuting experience. This repository contains the codebase for both the frontend and backend of MetroMate. The backend is deployed on Render at [https://metromate-ixmd.onrender.com](https://metromate-ixmd.onrender.com), and frontend is deployed at [https://metromate.vercel.app](https://metromate.vercel.app)
 
 ## Technologies Used
 
@@ -52,6 +52,20 @@ To set up the MetroMate project locally, follow these steps:
     ```
 
 Now, you can access the MetroMate frontend at [http://localhost:5173](http://localhost:5173) and interact with the backend at [http://localhost:3000](http://localhost:3000).
+
+## Images
+<img width="225" alt="image" src="https://github.com/Satyaaam/metromatejs/assets/118035430/dbe880a1-68f3-4aac-8325-1505b8b90338">
+
+![image](https://github.com/Satyaaam/metromatejs/assets/118035430/c4a8c6ac-fa3e-4f99-a254-709ecdea61b3)
+
+![image](https://github.com/Satyaaam/metromatejs/assets/118035430/8fbf46bf-861b-4d48-8643-6f6918fb8df3)
+
+![image](https://github.com/Satyaaam/metromatejs/assets/118035430/56d34e66-f4a4-4960-865e-2318f1397e2e)
+
+![image](https://github.com/Satyaaam/metromatejs/assets/118035430/beddd64b-3dcc-47b9-b1be-d05a561793c1)
+
+
+
 
 ## Deployment
 
