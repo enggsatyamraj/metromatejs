@@ -19,7 +19,7 @@ const Profile = () => {
     const fetchAllDetails = async () => {
       setLoading(true);
       const response = await fetch(
-        "http://localhost:3000/api/v1/getalldetailsofaprofile",
+        "https://metromate-ixmd.onrender.com/api/v1/getalldetailsofaprofile",
         {
           method: "GET",
           headers: {
@@ -47,7 +47,7 @@ const Profile = () => {
     try {
       setLoading(true);
       const response = await fetch(
-        "http://localhost:3000/api/v1/deleteaccount",
+        "https://metromate-ixmd.onrender.com//api/v1/deleteaccount",
         {
           method: "DELETE",
           headers: {

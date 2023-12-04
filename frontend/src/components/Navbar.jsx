@@ -24,7 +24,7 @@ const Navbar = () => {
     const fetchAllDetails = async () => {
       // setLoading(true);
       const response = await fetch(
-        "http://localhost:3000/api/v1/getalldetailsofaprofile",
+        "https://metromate-ixmd.onrender.com/api/v1/getalldetailsofaprofile",
         {
           method: "GET",
           headers: {

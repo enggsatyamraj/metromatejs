@@ -22,7 +22,7 @@ const AdditionalDetails = () => {
   const handleUpdate = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/v1/updateadditionaldetails",
+        "https://metromate-ixmd.onrender.com/api/v1/updateadditionaldetails",
         {
           method: "POST",
           headers: {

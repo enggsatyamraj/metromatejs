@@ -15,7 +15,7 @@ const History = () => {
       dispatch(setLoading(true));
       try {
         const response = await fetch(
-          "http://localhost:3000/api/v1/getalldetailsofaprofile",
+          "https://metromate-ixmd.onrender.com/api/v1/getalldetailsofaprofile",
           {
             method: "GET",
             headers: {
@@ -47,7 +47,7 @@ const History = () => {
   const handleDeleteHistory = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/v1/deletehistory",
+        "https://metromate-ixmd.onrender.com//api/v1/deletehistory",
         {
           method: "DELETE",
           headers: {
