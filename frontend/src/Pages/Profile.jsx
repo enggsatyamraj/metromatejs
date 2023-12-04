@@ -44,10 +44,10 @@ const Profile = () => {
   }, []);
 
   const handleDeleteAccount = async () => {
+    setLoading(true);
     try {
-      setLoading(true);
       const response = await fetch(
-        "https://metromate-ixmd.onrender.com//api/v1/deleteaccount",
+        "https://metromate-ixmd.onrender.com/api/v1/deleteaccount",
         {
           method: "DELETE",
           headers: {
@@ -66,10 +66,11 @@ const Profile = () => {
       } else {
         console.log(data.message);
       }
-      setLoading(false);
     } catch (err) {
       console.log(err.message);
       toast.error(err.message);
+    } finally{
+      setLoading(false);
     }
   };
   return (
@@ -252,7 +253,7 @@ const Profile = () => {
               </button>
               <button
                 onClick={() => {
-                  handleDeleteAccount();
+                  handleDeleteAccount()
                 }}
                 className="mt-[20px] ml-5 mb-[10px] bg-gray-700 px-3 py-1 text-gray-50 cursor-pointer rounded-lg"
               >
