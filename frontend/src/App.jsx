@@ -13,7 +13,7 @@ import Profile from "./Pages/Profile.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import History from "./Pages/History.jsx";
 import HelpConnect from "./Pages/HelpConnect.jsx";
-import AdditionalDetails from "./Pages/additionalDetails.jsx";
+import AdditionalDetails from './Pages/AdditionalDetails.jsx'
 import ProfileUpdate from "./Pages/ProfileUpdate.jsx";
 import Footer from "./components/Footer.jsx";
 
