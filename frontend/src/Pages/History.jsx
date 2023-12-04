@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-hot-toast";
 import { IoTrashBin } from "react-icons/io5";
-import { setLoading } from "../slices/profileSlice";
 import Spinner from "../components/Spinner";
 
 const History = () => {
@@ -39,7 +38,7 @@ const History = () => {
         console.error("Error fetching data:", error);
         toast.error("An error occurred while fetching data");
       } finally {
-        setLoading(true);
+        setLoading(false);
       }
     };
 
