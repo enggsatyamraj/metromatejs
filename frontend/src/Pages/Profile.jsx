@@ -75,7 +75,9 @@ const Profile = () => {
   return (
     <>
       {loading ? (
-        <Spinner width={"100vw"} height={"70vh"} />
+        <div className="mt-[100px] bg-white">
+          <Spinner width={"100vw"} height={"70vh"} />
+        </div>
       ) : (
         <div className="mt-[100px] bg-white px-6 lg:px-8">
           <div className="w-[100%] sm:min-h-[80vh] gap-2 flex flex-col sm:flex-row">
@@ -249,7 +251,9 @@ const Profile = () => {
                 update Profile
               </button>
               <button
-              onClick={()=>{handleDeleteAccount()}}
+                onClick={() => {
+                  handleDeleteAccount();
+                }}
                 className="mt-[20px] ml-5 mb-[10px] bg-gray-700 px-3 py-1 text-gray-50 cursor-pointer rounded-lg"
               >
                 Delete Account
