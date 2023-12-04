@@ -30,7 +30,7 @@ const History = () => {
 
         if (data.success) {
           setHistory(data?.userDetails?.history);
-          toast.success("All History Fetched");
+          // toast.success("All History Fetched");
         } else {
           toast.error(data.message);
         }
@@ -43,7 +43,7 @@ const History = () => {
     };
 
     apiCalling();
-  }, [token, loading]);
+  }, [token]);
 
   const handleDeleteHistory = async () => {
     try {
