@@ -11,6 +11,11 @@ Welcome to MetroMate—a revolutionary platform that redefines your commuting ex
 - **Backend:** Node.js, Express
 - **Deployment (Backend):** Render
 
+  ## Data Structure used
+
+- **Graph**
+- **Stack** 
+
 ## Installation
 
 To set up the MetroMate project locally, follow these steps:
