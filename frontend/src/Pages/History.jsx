@@ -76,7 +76,9 @@ const History = () => {
   return (
     <div className="bg-white mt-[100px] px-6 lg-px-8 min-h-[80vh]">
       {loading ? (
-        <Spinner width={"100vw"} height={"70vh"} />
+        <div className="flex items-center justify-center sm:h-[60vh] h-[300px]">
+          <Spinner width={"100vw"} height={"70vh"} />
+        </div>
       ) : (
         <div className="">
           <div className="flex  justify-between">

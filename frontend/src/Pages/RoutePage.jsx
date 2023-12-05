@@ -281,21 +281,24 @@ const RoutePage = () => {
   const handleFindroute = async () => {
     try {
       setLoading(true);
-      const response = await fetch("https://metromate-ixmd.onrender.com/api/v1/stations", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          source: source,
-          destination: destination,
-        }),
-      });
+      const response = await fetch(
+        "https://metromate-ixmd.onrender.com/api/v1/stations",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            source: source,
+            destination: destination,
+          }),
+        }
+      );
 
       const result = await response.json();
       console.log(result);
-      setLoading(false)
+      setLoading(false);
       if (result.success) {
         setRoute(result?.route?.path);
         setTotalStations(result?.route?.stations);
@@ -395,7 +398,9 @@ const RoutePage = () => {
 
         <div>
           {loading ? (
-            <Spinner width={"100%"} height={"50vh"} />
+            <div className="sm:h-[400px] h-[200px] flex items-center justify-center">
+              <Spinner width={"100%"} height={"50vh"} />
+            </div>
           ) : (
             route.length > 0 && (
               <div className=" px-2">

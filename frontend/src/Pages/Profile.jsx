@@ -74,9 +74,9 @@ const Profile = () => {
     }
   };
   return (
-    <>
+    <div className="mb-5">
       {loading ? (
-        <div className="mt-[100px] bg-white">
+        <div className="mt-[100px] bg-white flex justify-center items-center sm:h-[80vh] h-[100vh]">
           <Spinner width={"100vw"} height={"70vh"} />
         </div>
       ) : (
@@ -263,7 +263,7 @@ const Profile = () => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

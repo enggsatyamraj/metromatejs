@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog } from "@headlessui/react";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "../slices/authSlice";
 import { toast } from "react-hot-toast";
@@ -18,7 +18,8 @@ const Navbar = () => {
     { name: "Help & Contact", href: "/helpandcontact" },
   ];
 
-  console.log("navbar part" , user);
+  console.log("navbar part", user);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAllDetails = async () => {
@@ -120,7 +121,10 @@ const Navbar = () => {
           )}
           {token !== null && (
             <button
-              onClick={handleLogout}
+              onClick={() => {
+                handleLogout();
+                navigate("/");
+              }}
               className="border-2 border-gray-600 rounded-sm px-2 py-1 text-sm font-semibold leading-6 text-gray-900"
             >
               Log out <span aria-hidden="true">&rarr;</span>
@@ -203,8 +207,9 @@ const Navbar = () => {
                 {token !== null && (
                   <button
                     onClick={() => {
-                      handleLogout();
                       setMobileMenuOpen(false);
+                      handleLogout();
+                      navigate("/");
                     }}
                     className="border-2 border-gray-600 rounded-sm px-2 py-1 text-sm font-semibold leading-6 text-gray-900"
                   >
