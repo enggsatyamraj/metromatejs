@@ -60,16 +60,45 @@ const Navbar = () => {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+          <Link to="/" className="-m-1.5 p-1.5">
+            <span className="sr-only">Metro Mate</span>
             <img
               className="h-8 w-auto"
               src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               alt=""
             />
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
+          <div>
+            {token === null && (
+              <Link
+                to="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="border-2 border-gray-600 rounded-sm mr-2 px-3 py-2 text-sm font-semibold leading-6 text-gray-900"
+              >
+                Log in <span aria-hidden="true">&rarr;</span>
+              </Link>
+            )}
+            {user && token !== null && (
+              <Link to="/profile">
+                <img
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="h-10 mr-3 w-10 rounded-full"
+                  src={user?.image}
+                  alt="profile picture"
+                />
+                {/* {
+                  user?.image ? (<div>hello</div>) : (<img
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="h-10 w-10 rounded-full"
+                    src={user?.image}
+                    alt="profile picture"
+                  />)
+                } */}
+              </Link>
+            )}
+          </div>
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
@@ -93,7 +122,8 @@ const Navbar = () => {
             </Link>
           ))}
         </div>
-        <div className="hidden lg:flex gap-4 items-center lg:flex-1 lg:justify-end">
+
+        <div className="hidden lg:flex gap-4 items-center lg:flex-1  lg:justify-end">
           {user && token !== null && (
             <Link to="/profile">
               <img

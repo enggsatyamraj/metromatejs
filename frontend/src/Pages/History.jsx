@@ -46,30 +46,37 @@ const History = () => {
   }, [token]);
 
   const handleDeleteHistory = async () => {
-    try {
-      const response = await fetch(
-        "https://metromate-ixmd.onrender.com/api/v1/deletehistory",
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
+    if (history.length < 1) {
+      toast.error("History is already deleted.");
+    } else {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          "https://metromate-ixmd.onrender.com/api/v1/deletehistory",
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        const data = await response.json();
+
+        if (data.success) {
+          // Clear the history in the state
+          setHistory([]);
+          toast.success("History Cleared Successfully");
+        } else {
+          toast.error(data.message);
         }
-      );
-
-      const data = await response.json();
-
-      if (data.success) {
-        // Clear the history in the state
-        setHistory([]);
-        toast.success("History Cleared Successfully");
-      } else {
-        toast.error(data.message);
+      } catch (error) {
+        console.error("Error deleting history:", error);
+        toast.error("An error occurred while deleting history");
+      } finally {
+        setLoading(false);
       }
-    } catch (error) {
-      console.error("Error deleting history:", error);
-      toast.error("An error occurred while deleting history");
     }
   };
 
@@ -79,7 +86,7 @@ const History = () => {
         <div className="flex items-center justify-center sm:h-[60vh] h-[300px]">
           <Spinner width={"100vw"} height={"70vh"} />
         </div>
-      ) : (
+      ) : history.length > 0 ? (
         <div className="">
           <div className="flex  justify-between">
             <h1 className="text-[2.5rem] font-bold text-gray-700">History</h1>
@@ -92,7 +99,9 @@ const History = () => {
           </div>
           <div>
             {loading ? (
-              <div className="bg-red-800 text-white px-3 py-1">Loading....</div>
+              <div className="bg-red-800 hidden text-white px-3 py-1">
+                Loading....
+              </div>
             ) : (
               history.map((item, index) => {
                 const date = new Date(item.timeStamp);
@@ -129,6 +138,21 @@ const History = () => {
                 );
               })
             )}
+          </div>
+        </div>
+      ) : (
+        <div>
+          <div className="flex  justify-between">
+            <h1 className="text-[2.5rem] font-bold text-gray-700">History</h1>
+            <div
+              onClick={handleDeleteHistory}
+              className="flex text-xl font-semibold border-[2px] cursor-pointer border-gray-600 px-3 py- rounded-lg items-center gap-3 w-fit"
+            >
+              Clear All <IoTrashBin />
+            </div>
+          </div>
+          <div className="w-[100%] h-[70vh] flex items-center justify-center">
+            <h1 className="text-2xl text-gray-700 font-bold">No Searches</h1>
           </div>
         </div>
       )}
