@@ -7,7 +7,7 @@ import { setToken } from "../slices/authSlice";
 const Profile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.token);
+  const token = useSelector((state) => state.auth.token) || localStorage.getItem('token');
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(false);
   // const { user } = useSelector((state) => state.profile);

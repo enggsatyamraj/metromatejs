@@ -7,7 +7,7 @@ import Spinner from "../components/Spinner";
 const History = () => {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(false);
-  const token = useSelector((state) => state.auth.token);
+  const token = useSelector((state) => state.auth.token) || localStorage.getItem('token');
   // const loading = useSelector((state) => state.auth.loading);
   // const dispatch = useDispatch();
 

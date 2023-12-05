@@ -45,6 +45,7 @@ const Login = () => {
         dispatch(setToken(result?.token));
         console.log(result.message);
         console.log(result?.token);
+        localStorage.setItem("token", result?.token);
         const userImage = result?.user?.image;
         console.log(userImage);
         dispatch(setUser(result.user));

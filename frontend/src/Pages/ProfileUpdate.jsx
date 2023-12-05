@@ -7,7 +7,7 @@ import { setUser } from "../slices/profileSlice";
 const ProfileUpdate = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.profile.user);
-  const token = useSelector((state) => state.auth.token);
+  const token = useSelector((state) => state.auth.token) || localStorage.getItem('token');
   const dispatch = useDispatch();
   const [userDetails, setUserDetails] = useState({
     firstName: user?.firstName,

@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const AdditionalDetails = () => {
-    const token = useSelector((state)=>state.auth.token)
+    const token = useSelector((state)=>state.auth.token) || localStorage.getItem('token');
     const user = useSelector((state)=>state.profile.user);
     const navigate = useNavigate();
   const [userDetails, setUserDetails] = useState({

@@ -9,7 +9,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const token = useSelector((state) => state.auth.token);
+  const token = useSelector((state) => state.auth.token) || localStorage.getItem('token');
   const [user, setUser] = useState([]);
   const navigation = [
     { name: "Home", href: "/" },

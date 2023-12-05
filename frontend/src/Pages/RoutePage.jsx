@@ -273,7 +273,7 @@ const RoutePage = () => {
   // const [fair, setFair] = useState("");
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
-  const token = useSelector((state) => state.auth.token);
+  const token = useSelector((state) => state.auth.token) || localStorage.getItem("token");
   // const loading = useSelector((state) => state.auth.loading);
   // const dispatch = useDispatch();
   // setLoading;
