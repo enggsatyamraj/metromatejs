@@ -5,11 +5,13 @@ import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setToken } from "../slices/authSlice";
 import { toast } from "react-hot-toast";
+import logo from '../assets/logo.jpeg';
 const Navbar = () => {
   const dispatch = useDispatch();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const token = useSelector((state) => state.auth.token) || localStorage.getItem('token');
+  const token =
+    useSelector((state) => state.auth.token) || localStorage.getItem("token");
   const [user, setUser] = useState([]);
   const navigation = [
     { name: "Home", href: "/" },
@@ -46,12 +48,16 @@ const Navbar = () => {
     };
 
     fetchAllDetails();
-  });
+  }, [token, user]);
 
   const handleLogout = () => {
     dispatch(setToken(null));
+    // localStorage.setItem("token", "");
+    localStorage.removeItem("token");
     toast.success("logged out successfully");
-    Navigate("/login");
+    console.log("logout button token............", token);
+    console.log("logout button user.........", user);
+    navigate("/");
   };
   return (
     <header className="absolute inset-x-0 top-0 z-50">
@@ -63,15 +69,15 @@ const Navbar = () => {
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Metro Mate</span>
             <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+              className="h-[70px] aspect-sqaure rounded-full"
+              src={logo}
               alt=""
             />
           </Link>
         </div>
         <div className="flex lg:hidden">
           <div>
-            {token === null && (
+            {token == null && (
               <Link
                 to="/login"
                 onClick={() => setMobileMenuOpen(false)}
@@ -124,7 +130,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex gap-4 items-center lg:flex-1  lg:justify-end">
-          {user && token !== null && (
+          {user && user.length > 0 && token !== null && (
             <Link to="/profile">
               <img
                 className="h-10 w-10 rounded-full"
@@ -133,7 +139,7 @@ const Navbar = () => {
               />
             </Link>
           )}
-          {token === null && (
+          {token == null && (
             <Link
               to="/login"
               className="border-2 border-gray-600 rounded-sm px-2 py-1 text-sm font-semibold leading-6 text-gray-900"
@@ -141,7 +147,7 @@ const Navbar = () => {
               Log in <span aria-hidden="true">&rarr;</span>
             </Link>
           )}
-          {token === null && (
+          {token == null && (
             <Link
               to="/signup"
               className="border-2 border-gray-600 rounded-sm px-2 py-1 text-sm font-semibold leading-6 text-gray-900"
@@ -174,8 +180,8 @@ const Navbar = () => {
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                className="h-[60px] rounded-full w-auto"
+                src={logo}
                 alt=""
               />
             </a>
@@ -206,7 +212,7 @@ const Navbar = () => {
                 ))}
               </div>
               <div className="py-6 flex gap-4">
-                {user && token !== null && (
+                {user && user.length > 0 && token !== null && (
                   <Link to="/profile">
                     <img
                       onClick={() => setMobileMenuOpen(false)}
