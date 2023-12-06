@@ -130,7 +130,7 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex gap-4 items-center lg:flex-1  lg:justify-end">
-          {user && user.length > 0 && token !== null && (
+          {user && token !== null && (
             <Link to="/profile">
               <img
                 className="h-10 w-10 rounded-full"
