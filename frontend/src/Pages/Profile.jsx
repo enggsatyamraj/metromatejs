@@ -12,8 +12,8 @@ const Profile = () => {
   const [loading, setLoading] = useState(false);
   // const { user } = useSelector((state) => state.profile);
   const imageUrl = user?.image;
-  console.log(imageUrl);
-  console.log(user);
+  //console.log(imageUrl);
+  //console.log(user);
 
   useEffect(() => {
     const fetchAllDetails = async () => {
@@ -29,13 +29,13 @@ const Profile = () => {
         }
       );
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
       if (data.success) {
         setUser(data.userDetails);
-        console.log(user);
+        //console.log(user);
         // dispatch(setToken(null));
       } else {
-        console.log(data.message);
+        //console.log(data.message);
       }
       setLoading(false);
     };
@@ -57,17 +57,18 @@ const Profile = () => {
         }
       );
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
       if (data.success) {
-        console.log(user);
+        //console.log(user);
         navigate("/");
         dispatch(setToken(null));
+        localStorage.removeItem("token");
         toast.success(data.message);
       } else {
-        console.log(data.message);
+        //console.log(data.message);
       }
     } catch (err) {
-      console.log(err.message);
+      //console.log(err.message);
       toast.error(err.message);
     } finally{
       setLoading(false);

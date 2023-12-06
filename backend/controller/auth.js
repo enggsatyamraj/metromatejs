@@ -8,7 +8,7 @@ const Profile = require("../models/ProfileModels");
 require("dotenv").config();
 
 exports.signup = async (req, res) => {
-  console.log("signup endpoint reached");
+  //console.log("signup endpoint reached");
   try {
     const {
       firstName,
@@ -77,7 +77,7 @@ exports.signup = async (req, res) => {
 };
 
 exports.login = async (req, res) => {
-  console.log("login endpoint reached.");
+  //console.log("login endpoint reached.");
   try {
     const { email, password } = req.body;
 
@@ -111,7 +111,7 @@ exports.login = async (req, res) => {
       );
 
       user.token = token;
-      console.log("nnnnnnnnnnnnnnnnnnnnnnnn", user.token);
+      //console.log("nnnnnnnnnnnnnnnnnnnnnnnn", user.token);
       user.password = undefined;
 
       // cookies wala kaam;
@@ -163,9 +163,9 @@ exports.login = async (req, res) => {
 //         });
 
 //         const result = await OTP.findOne({otp:otp});
-//         console.log("Result is Generate OTP function.");
-//         console.log("OTP",otp);
-//         console.log("result",result);
+//         //console.log("Result is Generate OTP function.");
+//         //console.log("OTP",otp);
+//         //console.log("result",result);
 //         while(result){
 //             otp = otpGenerator.generate(6,{
 //                 upperCaseAlphabets:false,
@@ -176,7 +176,7 @@ exports.login = async (req, res) => {
 
 //         const otpPayload = {email, otp};
 //         const otpBody = await OTP.create(otpPayload);
-//         console.log("OTP body",otpBody);
+//         //console.log("OTP body",otpBody);
 //         return res.status(200).json({
 //             success : true,
 //             message : "OTP Generated successfully."

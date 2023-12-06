@@ -36,14 +36,14 @@ const AdditionalDetails = () => {
       if(data.success){
         toast.success(data.message);
         navigate("/profile");
-        console.log(user);
+        //console.log(user);
       }
       else{
-        console.log(data.message);
+        //console.log(data.message);
         toast.error(data.message);
       }
     } catch (err) {
-      console.log(err.message);
+      //console.log(err.message);
       toast.error(err.message);
     }
   };

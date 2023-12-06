@@ -20,7 +20,7 @@ const Navbar = () => {
     { name: "Help & Contact", href: "/helpandcontact" },
   ];
 
-  console.log("navbar part", user);
+  //console.log("navbar part", user);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,12 +37,12 @@ const Navbar = () => {
         }
       );
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
       if (data.success) {
         setUser(data.userDetails);
-        console.log(user);
+        //console.log(user);
       } else {
-        console.log(data.message);
+        //console.log(data.message);
       }
       // setLoading(false);
     };
@@ -55,10 +55,11 @@ const Navbar = () => {
     // localStorage.setItem("token", "");
     localStorage.removeItem("token");
     toast.success("logged out successfully");
-    console.log("logout button token............", token);
-    console.log("logout button user.........", user);
+    //console.log("logout button token............", token);
+    //console.log("logout button user.........", user);
     navigate("/");
   };
+  const [imageLoaded, setImageLoaded] = useState(false);
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav
@@ -94,14 +95,6 @@ const Navbar = () => {
                   src={user?.image}
                   alt="profile picture"
                 />
-                {/* {
-                  user?.image ? (<div>hello</div>) : (<img
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="h-10 w-10 rounded-full"
-                    src={user?.image}
-                    alt="profile picture"
-                  />)
-                } */}
               </Link>
             )}
           </div>
@@ -177,14 +170,17 @@ const Navbar = () => {
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href="#" className="-m-1.5 p-1.5">
+            <div className="-m-1.5  p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
+              <img onClick={()=>{
+                navigate("/");
+                setMobileMenuOpen(false);
+              }}
                 className="h-[60px] rounded-full w-auto"
                 src={logo}
                 alt=""
               />
-            </a>
+            </div>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"

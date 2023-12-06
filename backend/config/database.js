@@ -7,10 +7,10 @@
 //       useNewUrlParser: true,
 //       useUnifiedTopology: true,
 //     })
-//     .then(() => console.log("Databse is connected"))
+//     .then(() => //console.log("Databse is connected"))
 //     .catch((err) => {
-//       console.log("Error in conecting database");
-//       console.log(err.message);
+//       //console.log("Error in conecting database");
+//       //console.log(err.message);
 //       process.exit(1);
 //     });
 // };
@@ -25,7 +25,7 @@ exports.connectWithDb = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    console.log("Database is connected");
+    //console.log("Database is connected");
   } catch (err) {
     console.error("Error connecting to the database");
     console.error(err.message);

@@ -297,22 +297,22 @@ const RoutePage = () => {
       );
 
       const result = await response.json();
-      console.log(result);
+      //console.log(result);
       setLoading(false);
       if (result.success) {
         setRoute(result?.route?.path);
         setTotalStations(result?.route?.stations);
         setTime(result?.route?.time);
         setInterchange(result?.route?.interchanges);
-        console.log(route);
-        console.log(result);
+        //console.log(route);
+        //console.log(result);
       } else {
-        console.log(result.message);
-        console.log(result.error);
+        //console.log(result.message);
+        //console.log(result.error);
         // toast.error(result.message);
       }
     } catch (err) {
-      console.log("error during finding the route.", err);
+      //console.log("error during finding the route.", err);
       toast.error(err.message);
     }
   };

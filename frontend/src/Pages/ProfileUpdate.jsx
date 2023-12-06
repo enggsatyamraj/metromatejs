@@ -42,15 +42,15 @@ const ProfileUpdate = () => {
         toast.success(data.message);
         navigate("/profile");
         dispatch(setUser(userDetails));
-        console.log("khana")
-        console.log("user updated in ProfileUpdate.jsx part",user);
-        // console.log("profile update",userDetails);
+        //console.log("khana")
+        //console.log("user updated in ProfileUpdate.jsx part",user);
+        // //console.log("profile update",userDetails);
       } else {
-        console.log(data.message);
+        //console.log(data.message);
         toast.error(data.message);
       }
     } catch (err) {
-      console.log(err.message);
+      //console.log(err.message);
       toast.error(err.message);
     }
   };

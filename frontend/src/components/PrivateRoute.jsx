@@ -10,7 +10,7 @@ const PrivateRoute = ({ children }) => {
     return children;
   } else {
     toast.error("Login Please First");
-    console.log("login in first sir")
+    //console.log("login in first sir")
     return (
       <>
         return <Navigate to="/login" />;

@@ -43,22 +43,22 @@ const Login = () => {
       const result = await response.json();
       if (result.success) {
         dispatch(setToken(result?.token));
-        console.log(result.message);
-        console.log(result?.token);
+        //console.log(result.message);
+        //console.log(result?.token);
         localStorage.setItem("token", result?.token);
         const userImage = result?.user?.image;
-        console.log(userImage);
+        //console.log(userImage);
         dispatch(setUser(result.user));
-        console.log("login jsx", user);
+        //console.log("login jsx", user);
         navigate("/");
         toast.success("logged in successfully");
       } else {
-        console.log(result.message);
-        console.log(result.error);
+        //console.log(result.message);
+        //console.log(result.error);
         toast.error(result.message);
       }
     } catch (err) {
-      console.log("error during login", err);
+      //console.log("error during login", err);
       toast.error(err.message);
     }
     setLoading(false);

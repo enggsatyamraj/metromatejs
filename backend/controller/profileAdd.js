@@ -87,7 +87,7 @@ exports.updateProfile = async (req, res) => {
     // Generate the image URL based on the first name and last name
     const imageUrl = `https://api.dicebear.com/5.x/initials/svg?seed=${firstName} ${lastName}`;
     updateFields.image = imageUrl;
-    console.log("updated fields",updateFields);
+    //console.log("updated fields",updateFields);
 
     const userDetails = await User.findByIdAndUpdate(
       { _id: id },

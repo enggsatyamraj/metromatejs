@@ -64,7 +64,7 @@ const HelpConnect = () => {
         Important Contacts and Helpline Number
       </p>
 
-      <div className="grid grid-cols-1 mt-4 mb-5 sm:grid-cols-2 gap-4 md:grid-cols-3">
+      <div className="grid grid-cols-1 mt-4 mb-5 sm:grid-cols-2 gap-4 lg:grid-cols-3">
         {contactArray.map((item, index) => {
           return (
             <div

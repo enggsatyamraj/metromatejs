@@ -6,10 +6,10 @@ const User = require("../models/UserModels");
 
 exports.auth = async (req, res, next) => {
   try {
-    console.log("extracting token");
+    //console.log("extracting token");
     const token = req.header("Authorization").replace("Bearer ", "");
-    console.log(token);
-    console.log("After token extraction.....");
+    //console.log(token);
+    //console.log("After token extraction.....");
     if (!token) {
       return res.status(403).json({
         success: false,
@@ -20,7 +20,7 @@ exports.auth = async (req, res, next) => {
     // verify token
     try {
       const decode = jwt.verify(token, process.env.JWT_SECRET);
-      console.log(decode);
+      //console.log(decode);
       req.user = decode;
     } catch (err) {
       return res.status(400).json({
@@ -32,7 +32,7 @@ exports.auth = async (req, res, next) => {
 
     next();
   } catch (err) {
-    console.log(err);
+    //console.log(err);
     return res.status(500).json({
       success: false,
       message: "Internal server error",
