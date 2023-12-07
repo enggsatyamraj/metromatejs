@@ -2,6 +2,7 @@ import React from "react";
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { CgWebsite } from "react-icons/cg";
+import { useSelector } from "react-redux";
 
 const HelpConnect = () => {
   const contactArray = [
@@ -53,62 +54,66 @@ const HelpConnect = () => {
     },
   ];
 
+  const currentTheme = useSelector((state)=>state.theme.mode);
+
   // title, Number,Email, Website,AlternativeEmail, Landline, Mobile
 
   return (
-    <div className="mt-[100px] min-h-[80vh] px-6 lg:px-8">
-      <h1 className="text-3xl font-semibold text-gray-700">
-        -----Help And Contact
-      </h1>
-      <p className="text-2xl text-gray-700 font-semibold mt-4">
-        Important Contacts and Helpline Number
-      </p>
+    <div className={`${currentTheme === "light" ? "light" : "dark"}`}>
+      <div className="pt-[100px] dark:bg-slate-950 pb-10 dark:text-gray-50 min-h-[80vh] px-6 lg:px-8">
+        <h1 className="text-3xl font-semibold dark:text-gray-50 text-gray-700">
+          -----Help And Contact
+        </h1>
+        <p className="text-2xl text-gray-700 dark:text-gray-50 font-semibold mt-4">
+          Important Contacts and Helpline Number
+        </p>
 
-      <div className="grid grid-cols-1 mt-4 mb-5 sm:grid-cols-2 gap-4 lg:grid-cols-3">
-        {contactArray.map((item, index) => {
-          return (
-            <div
-              className="border-[1.5px] shadow-lg cursor-pointer border-indigo-400 lg:max-w-[400px] px-4 py-4 rounded-lg "
-              key={index}
-            >
-              <h1 className="text-sm font-bold mb-2 text-gray-800">
-                {item?.title && item?.title}
-              </h1>
-              {item?.Number && (
-                <p className="flex gap-2 items-center">
-                  <FaPhoneAlt /> {item?.Number}
-                </p>
-              )}
-              {item?.Landline && (
-                <p className="flex gap-2 items-center">
-                  <FaPhoneAlt /> {item?.Landline}
-                </p>
-              )}
-              {item?.Mobile && (
-                <p className="flex gap-2 items-center">
-                  <FaPhoneAlt /> {item?.Mobile}
-                </p>
-              )}
-              {item?.Email && (
-                <p className="flex gap-2 items-center">
-                  <MdEmail /> {item?.Email}
-                </p>
-              )}
-              {item?.Website && (
-                <p className="flex gap-2 items-center">
-                  {" "}
-                  <CgWebsite /> {item?.Website}{" "}
-                </p>
-              )}
-              {item?.AlternativeEmail && (
-                <p className="flex gap-2 items-center">
-                  {" "}
-                  <CgWebsite /> {item?.AlternativeEmail}{" "}
-                </p>
-              )}
-            </div>
-          );
-        })}
+        <div className="grid grid-cols-1 mt-4 mb-5 sm:grid-cols-2 gap-4 lg:grid-cols-3">
+          {contactArray.map((item, index) => {
+            return (
+              <div
+                className="border-[1.5px] shadow-lg dark:shadow-gray-700 cursor-pointer dark:border-gray-50 border-indigo-400 lg:max-w-[400px] px-4 py-4 rounded-lg "
+                key={index}
+              >
+                <h1 className="text-sm font-bold mb-2 dark:text-gray-50 text-gray-800">
+                  {item?.title && item?.title}
+                </h1>
+                {item?.Number && (
+                  <p className="flex gap-2 opacity-85 items-center">
+                    <FaPhoneAlt /> {item?.Number}
+                  </p>
+                )}
+                {item?.Landline && (
+                  <p className="flex gap-2 opacity-85 items-center">
+                    <FaPhoneAlt /> {item?.Landline}
+                  </p>
+                )}
+                {item?.Mobile && (
+                  <p className="flex gap-2 opacity-85 items-center">
+                    <FaPhoneAlt /> {item?.Mobile}
+                  </p>
+                )}
+                {item?.Email && (
+                  <p className="flex gap-2 opacity-85 items-center">
+                    <MdEmail /> {item?.Email}
+                  </p>
+                )}
+                {item?.Website && (
+                  <p className="flex gap-2 opacity-85 items-center">
+                    {" "}
+                    <CgWebsite /> {item?.Website}{" "}
+                  </p>
+                )}
+                {item?.AlternativeEmail && (
+                  <p className="flex gap-2 opacity-85 items-center">
+                    {" "}
+                    <CgWebsite /> {item?.AlternativeEmail}{" "}
+                  </p>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

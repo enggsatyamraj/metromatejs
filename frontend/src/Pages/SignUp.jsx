@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { setSignupData } from "../slices/authSlice";
@@ -58,16 +58,17 @@ const SignUp = () => {
       setLoading(false);
     }
   };
+  const currentTheme = useSelector((state)=>state.theme.mode);
   return (
-    <>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className={`${currentTheme==="light" ? "light" : "dark"}`}>
+      <div className="dark:bg-slate-950 dark:text-gray-50 flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           {/* <img
             className="mx-auto h-10 w-auto"
             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
             alt="Your Company"
           /> */}
-          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight dark:text-gray-50 text-gray-900">
             Sign Up
           </h2>
         </div>
@@ -83,7 +84,7 @@ const SignUp = () => {
               <div>
                 <label
                   htmlFor="firstName"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-xl font-medium leading-6 text-gray-900 dark:text-gray-50"
                 >
                   First Name
                 </label>
@@ -92,6 +93,7 @@ const SignUp = () => {
                     id="firstName"
                     name="firstName"
                     type="text"
+                    placeholder="First Name"
                     autoComplete="given-name"
                     required
                     value={userDetails.firstName}
@@ -103,7 +105,7 @@ const SignUp = () => {
               <div>
                 <label
                   htmlFor="lastName"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-xl font-medium leading-6 text-gray-900 dark:text-gray-50"
                 >
                   Last Name
                 </label>
@@ -112,6 +114,7 @@ const SignUp = () => {
                     id="lastName"
                     name="lastName"
                     type="text"
+                    placeholder="Last Name"
                     value={userDetails.lastName}
                     autoComplete="family-name"
                     onChange={handleInputChange}
@@ -125,7 +128,7 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-xl mt-3 font-medium leading-6 text-gray-900 dark:text-gray-50"
               >
                 Email address
               </label>
@@ -134,6 +137,7 @@ const SignUp = () => {
                   id="email"
                   name="email"
                   type="email"
+                  placeholder="Email"
                   value={userDetails.email}
                   autoComplete="email"
                   onChange={handleInputChange}
@@ -146,7 +150,7 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="password"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-xl mt-3 font-medium leading-6 text-gray-900 dark:text-gray-50"
               >
                 Password
               </label>
@@ -155,6 +159,7 @@ const SignUp = () => {
                   id="password"
                   name="password"
                   type="password"
+                  placeholder="Password"
                   value={userDetails.password}
                   autoComplete="new-password"
                   onChange={handleInputChange}
@@ -167,7 +172,7 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="confirmPassword"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-xl mt-3 font-medium leading-6 text-gray-900 dark:text-gray-50"
               >
                 Confirm Password
               </label>
@@ -176,6 +181,7 @@ const SignUp = () => {
                   id="confirmPassword"
                   name="confirmPassword"
                   type="password"
+                  placeholder="Confirm Password"
                   value={userDetails.confirmPassword}
                   autoComplete="new-password"
                   onChange={handleInputChange}
@@ -188,7 +194,7 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="accountType"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-xl mt-3 font-medium leading-6 text-gray-900 dark:text-gray-50"
               >
                 Account Type
               </label>
@@ -209,7 +215,7 @@ const SignUp = () => {
             <div>
               <label
                 htmlFor="contactNumber"
-                className="mt-3 block text-sm font-medium leading-6 text-gray-900"
+                className="mt-3 block text-xl font-medium leading-6 text-gray-900 dark:text-gray-50"
               >
                 Contact Number
               </label>
@@ -218,6 +224,7 @@ const SignUp = () => {
                   id="contactNumber"
                   name="contactNumber"
                   type="tel"
+                  placeholder="Contact number"
                   value={userDetails.contactNumber}
                   onChange={handleInputChange}
                   autoComplete="tel"
@@ -230,14 +237,14 @@ const SignUp = () => {
             <div>
               <button
                 onClick={handleSignup}
-                className="flex w-full mt-4 justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="flex w-full mt-10 justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               >
                 Sign up
               </button>
             </div>
             {/* </form> */}
 
-            <p className="mt-10 text-center text-sm text-gray-500">
+            <p className="mt-10 text-center text-[0.95rem] text-gray-500 font-semibold dark:text-gray-50">
               Already have an account?{" "}
               <Link
                 to="#"
@@ -249,7 +256,7 @@ const SignUp = () => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode:'class',
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -15,6 +16,9 @@ export default {
         GREY: "#808080",
         RAPID: "#000000",
         "BLUE 2": "#0000FF",
+      },
+      backdropBlur: {
+        xs: '2px',
       },
     },
   },
