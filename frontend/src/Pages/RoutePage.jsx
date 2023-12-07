@@ -353,7 +353,7 @@ const RoutePage = () => {
         <div className=" grid pt-[100px] grid-cols-1 md:grid-cols-2">
           <div className="flex flex-col  py-6 rounded-lg">
             <div className="max-w-[500px] w-[98%] sm:w-[95%]  mx-auto">
-              <h1 className="block mb-2 text-xl font-semibold sm:text-gray-50 text-gray-700">
+              <h1 className="block mb-2 text-xl font-semibold dark:text-gray-50 text-gray-700">
                 Source
               </h1>
               <input

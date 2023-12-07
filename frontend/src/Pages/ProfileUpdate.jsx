@@ -10,7 +10,7 @@ const ProfileUpdate = () => {
   const token =
     useSelector((state) => state.auth.token) || localStorage.getItem("token");
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const [userDetails, setUserDetails] = useState({
     firstName: user?.firstName || "",
     lastName: user?.lastName || "",
@@ -25,24 +25,6 @@ const ProfileUpdate = () => {
       [e.target.name]: e.target.value,
     });
   };
-
-  // useEffect(() => {
-  //   const getAllDetails = async () => {
-  //     setLoading(true);
-  //     try {
-  //       const response = await fetch(
-  //         "https://metromate-ixmd.onrender.com/api/v1/getAllDetailsOfAProfile",{
-  //           method:post
-  //         }
-  //       );
-  //     } catch (err) {
-  //       console.log(err.message);
-  //       toast.error(err.message);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  // });
 
   const handleUpdate = async () => {
     try {
