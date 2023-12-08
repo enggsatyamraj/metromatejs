@@ -16,6 +16,7 @@ const navigation = [
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const currentTheme = useSelector((state) => state.theme.mode);
+  const token = useSelector((state)=>state.auth.token);
 
   return (
     <div className={`${currentTheme === "light" ? "light" : "dark"}`}>
@@ -39,7 +40,7 @@ export default function Example() {
                 Unlock Effortless Urban Exploration with the Ultimate Commuting
                 Companion{" "}
                 <Link
-                  to={"/login"}
+                  to={token ? "/routes" : "/login"}
                   className="font-semibold text-indigo-600 dark:text-indigo-500"
                 >
                   <span className="absolute inset-0" aria-hidden="true" />
@@ -59,13 +60,13 @@ export default function Example() {
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6">
                 <Link
-                  to="/login"
+                  to={token ? "/routes" : "/login"}
                   className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   See Routes
                 </Link>
                 <Link
-                  to="/login"
+                  to={token ? "/routes" : "/login"}
                   className="text-sm dark:text-gray-100 font-semibold leading-6 text-gray-900"
                 >
                   Learn more <span aria-hidden="true">→</span>
